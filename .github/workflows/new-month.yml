@@ -4,7 +4,16 @@ permissions:
   contents: write
   
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      year:
+        description: "연도 (예: 2026)"
+        required: true
+        default: "2026"
+      month:
+        description: "월 (1~12)"
+        required: true
+        default: "1"
 
 jobs:
   create-month:
@@ -14,13 +23,15 @@ jobs:
 
       - name: Set date vars
         run: |
-          YEAR=$(date +'%Y')
-          MONTH=$(date +'%m')
+          YEAR="${{ github.event.inputs.year }}"
+          MONTH_RAW="${{ github.event.inputs.month }}"
 
-          # 기준 날짜 (해당 월 1일)
+          # 월을 항상 2자리로 맞춤 (3 → 03)
+          MONTH=$(printf "%02d" "$MONTH_RAW")
+
           BASE_DATE="${YEAR}-${MONTH}-01"
 
-          # 첫 월요일 구하기
+          # 첫 월요일 계산
           DOW=$(date -d "$BASE_DATE" +%u) # 1=Mon ... 7=Sun
           if [ "$DOW" -eq 1 ]; then
             FIRST_MON="$BASE_DATE"
@@ -37,11 +48,13 @@ jobs:
           echo "YEAR=$YEAR" >> $GITHUB_ENV
           echo "MONTH=$MONTH" >> $GITHUB_ENV
           echo "FILENAME=${YEAR}-${MONTH}.md" >> $GITHUB_ENV
+
           echo "W1=$(w 1)" >> $GITHUB_ENV
           echo "W2=$(w 2)" >> $GITHUB_ENV
           echo "W3=$(w 3)" >> $GITHUB_ENV
           echo "W4=$(w 4)" >> $GITHUB_ENV
           echo "W5=$(w 5)" >> $GITHUB_ENV
+
           
       - name: Check if month file already exists
         run: |
