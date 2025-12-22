@@ -119,7 +119,7 @@ jobs:
           # 각 주 섹션에 삽입
           for i in range(1, 6):
               pattern = rf"(<!-- AUTO_PLAN_{i}_START -->)(.*?)(<!-- AUTO_PLAN_{i}_END -->)"
-              repl = rf"\\1\n{plans[i]}\n\\3"
+              repl = rf"\n{plans[i]}\n"
               text = re.sub(pattern, repl, text, flags=re.S)
 
           with open(filename, "w", encoding="utf-8") as f:
