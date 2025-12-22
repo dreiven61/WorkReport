@@ -62,10 +62,16 @@ jobs:
             -e "s|{{W5}}|${W5}|g" \
             templates/month.md > ${FILENAME}
 
-      - name: Commit file
+      - name: Commit file (if changed)
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add ${FILENAME}
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit. Skip."
+            exit 0
+          fi
+
           git commit -m "Add ${FILENAME}"
           git push
