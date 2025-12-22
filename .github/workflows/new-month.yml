@@ -46,13 +46,13 @@ jobs:
       - name: Create month file from template
         run: |
           sed \
-            -e "s/{{YEAR}}/${YEAR}/g" \
-            -e "s/{{MONTH}}/${MONTH}/g" \
-            -e "s/{{W1}}/${W1}/g" \
-            -e "s/{{W2}}/${W2}/g" \
-            -e "s/{{W3}}/${W3}/g" \
-            -e "s/{{W4}}/${W4}/g" \
-            -e "s/{{W5}}/${W5}/g" \
+            -e "s|{{YEAR}}|${YEAR}|g" \
+            -e "s|{{MONTH}}|${MONTH}|g" \
+            -e "s|{{W1}}|${W1}|g" \
+            -e "s|{{W2}}|${W2}|g" \
+            -e "s|{{W3}}|${W3}|g" \
+            -e "s|{{W4}}|${W4}|g" \
+            -e "s|{{W5}}|${W5}|g" \
             templates/month.md > ${FILENAME}
 
       - name: Commit file
