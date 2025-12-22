@@ -42,7 +42,14 @@ jobs:
           echo "W3=$(w 3)" >> $GITHUB_ENV
           echo "W4=$(w 4)" >> $GITHUB_ENV
           echo "W5=$(w 5)" >> $GITHUB_ENV
-
+          
+      - name: Check if month file already exists
+        run: |
+          if [ -f "${FILENAME}" ]; then
+            echo "${FILENAME} already exists. Skip creating."
+            exit 0
+          fi
+          
       - name: Create month file from template
         run: |
           sed \
