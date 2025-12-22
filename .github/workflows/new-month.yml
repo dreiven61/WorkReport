@@ -75,6 +75,32 @@ jobs:
             -e "s|{{W5}}|${W5}|g" \
             templates/month.md > ${FILENAME}
 
+      - name: Populate weekly plans from monthly table
+        run: |
+          python << 'EOF'
+          import re
+
+          filename = "${{ env.FILENAME }}"
+
+          with open(filename, "r", encoding="utf-8") as f:
+              text = f.read()
+
+          # 월간 계획 표에서 계획(P1~P5) 추출
+          plans = {}
+          for i in range(1, 6):
+              m = re.search(rf"\|\s*{i}주\s*\|.*?\|\s*(.*?)\s*\|", text)
+              plans[i] = m.group(1) if m else ""
+
+          # 각 주 섹션에 삽입
+          for i in range(1, 6):
+              pattern = rf"(<!-- AUTO_PLAN_{i}_START -->)(.*?)(<!-- AUTO_PLAN_{i}_END -->)"
+              repl = rf"\\1\n{plans[i]}\n\\3"
+              text = re.sub(pattern, repl, text, flags=re.S)
+
+          with open(filename, "w", encoding="utf-8") as f:
+              f.write(text)
+          EOF
+
       - name: Commit file (if changed)
         run: |
           git config user.name "github-actions"
