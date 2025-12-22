@@ -14,15 +14,45 @@ jobs:
 
       - name: Set date vars
         run: |
-          echo "YEAR=$(date +'%Y')" >> $GITHUB_ENV
-          echo "MONTH=$(date +'%m')" >> $GITHUB_ENV
-          echo "FILENAME=$(date +'%Y-%m').md" >> $GITHUB_ENV
+          YEAR=$(date +'%Y')
+          MONTH=$(date +'%m')
+
+          # 기준 날짜 (해당 월 1일)
+          BASE_DATE="${YEAR}-${MONTH}-01"
+
+          # 첫 월요일 구하기
+          DOW=$(date -d "$BASE_DATE" +%u) # 1=Mon ... 7=Sun
+          if [ "$DOW" -eq 1 ]; then
+            FIRST_MON="$BASE_DATE"
+          else
+            FIRST_MON=$(date -d "$BASE_DATE +$((8 - DOW)) days" +%Y-%m-%d)
+          fi
+
+          w() {
+            START=$(date -d "$FIRST_MON +$((($1 - 1) * 7)) days" +%m/%d)
+            END=$(date -d "$FIRST_MON +$((($1 - 1) * 7 + 4)) days" +%m/%d)
+            echo "${START}(월) ~ ${END}(금)"
+          }
+
+          echo "YEAR=$YEAR" >> $GITHUB_ENV
+          echo "MONTH=$MONTH" >> $GITHUB_ENV
+          echo "FILENAME=${YEAR}-${MONTH}.md" >> $GITHUB_ENV
+          echo "W1=$(w 1)" >> $GITHUB_ENV
+          echo "W2=$(w 2)" >> $GITHUB_ENV
+          echo "W3=$(w 3)" >> $GITHUB_ENV
+          echo "W4=$(w 4)" >> $GITHUB_ENV
+          echo "W5=$(w 5)" >> $GITHUB_ENV
 
       - name: Create month file from template
         run: |
           sed \
             -e "s/{{YEAR}}/${YEAR}/g" \
             -e "s/{{MONTH}}/${MONTH}/g" \
+            -e "s/{{W1}}/${W1}/g" \
+            -e "s/{{W2}}/${W2}/g" \
+            -e "s/{{W3}}/${W3}/g" \
+            -e "s/{{W4}}/${W4}/g" \
+            -e "s/{{W5}}/${W5}/g" \
             templates/month.md > ${FILENAME}
 
       - name: Commit file
