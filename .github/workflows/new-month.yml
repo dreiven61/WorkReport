@@ -1,0 +1,31 @@
+name: Create Monthly Markdown
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  create-month:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set date vars
+        run: |
+          echo "YEAR=$(date +'%Y')" >> $GITHUB_ENV
+          echo "MONTH=$(date +'%m')" >> $GITHUB_ENV
+          echo "FILENAME=$(date +'%Y-%m').md" >> $GITHUB_ENV
+
+      - name: Create month file from template
+        run: |
+          sed \
+            -e "s/{{YEAR}}/${YEAR}/g" \
+            -e "s/{{MONTH}}/${MONTH}/g" \
+            templates/month.md > ${FILENAME}
+
+      - name: Commit file
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add ${FILENAME}
+          git commit -m "Add ${FILENAME}"
+          git push
