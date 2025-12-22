@@ -67,7 +67,7 @@ jobs:
           w() {
             START=$(date -d "$FIRST_MON +$((($1 - 1) * 7)) days" +%m/%d)
             END=$(date -d "$FIRST_MON +$((($1 - 1) * 7 + 4)) days" +%m/%d)
-            echo "${START}(월) ~ ${END}(금)"
+            echo "${START} ~ ${END}"
           }
       
           echo "W1=$(w 1)" >> $GITHUB_ENV
