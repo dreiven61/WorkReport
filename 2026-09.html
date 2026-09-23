@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>2026-09</title>
+  <style>
+
+html {
+color: #1a1a1a;
+background-color: #fdfdfd;
+}
+body {
+margin: 0 auto;
+max-width: 36em;
+padding-left: 50px;
+padding-right: 50px;
+padding-top: 50px;
+padding-bottom: 50px;
+hyphens: auto;
+overflow-wrap: break-word;
+text-rendering: optimizeLegibility;
+font-kerning: normal;
+}
+@media (max-width: 600px) {
+body {
+font-size: 0.9em;
+padding: 12px;
+}
+h1 {
+font-size: 1.8em;
+}
+}
+@media print {
+html {
+background-color: white;
+}
+body {
+background-color: transparent;
+color: black;
+font-size: 12pt;
+}
+p, h2, h3 {
+orphans: 3;
+widows: 3;
+}
+h2, h3, h4 {
+page-break-after: avoid;
+}
+}
+p {
+margin: 1em 0;
+}
+a {
+color: #1a1a1a;
+}
+a:visited {
+color: #1a1a1a;
+}
+img {
+max-width: 100%;
+}
+svg {
+height: auto;
+max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+margin-top: 1.4em;
+}
+h5, h6 {
+font-size: 1em;
+font-style: italic;
+}
+h6 {
+font-weight: normal;
+}
+ol, ul {
+padding-left: 1.7em;
+margin-top: 1em;
+}
+li > ol, li > ul {
+margin-top: 0;
+}
+blockquote {
+margin: 1em 0 1em 1.7em;
+padding-left: 1em;
+border-left: 2px solid #e6e6e6;
+color: #606060;
+}
+code {
+white-space: pre-wrap;
+font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+font-size: 85%;
+margin: 0;
+hyphens: manual;
+}
+pre {
+margin: 1em 0;
+overflow: auto;
+}
+pre code {
+padding: 0;
+overflow: visible;
+overflow-wrap: normal;
+}
+.sourceCode {
+background-color: transparent;
+overflow: visible;
+}
+hr {
+border: none;
+border-top: 1px solid #1a1a1a;
+height: 1px;
+margin: 1em 0;
+}
+table {
+margin: 1em 0;
+border-collapse: collapse;
+width: 100%;
+overflow-x: auto;
+display: block;
+font-variant-numeric: lining-nums tabular-nums;
+}
+table caption {
+margin-bottom: 0.75em;
+}
+tbody {
+margin-top: 0.5em;
+border-top: 1px solid #1a1a1a;
+border-bottom: 1px solid #1a1a1a;
+}
+th {
+border-top: 1px solid #1a1a1a;
+padding: 0.25em 0.5em 0.25em 0.5em;
+}
+td {
+padding: 0.125em 0.5em 0.25em 0.5em;
+}
+header {
+margin-bottom: 4em;
+text-align: center;
+}
+#TOC li {
+list-style: none;
+}
+#TOC ul {
+padding-left: 1.3em;
+}
+#TOC > ul {
+padding-left: 0;
+}
+#TOC a:not(:hover) {
+text-decoration: none;
+}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+ul.task-list[class]{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+font-size: inherit;
+width: 0.8em;
+margin: 0 0.8em 0.2em -1.6em;
+vertical-align: middle;
+}
+.display.math{display: block; text-align: center; margin: 0.5rem auto;}
+</style>
+
+<style id="md-pandoc-exporter-clean-print-style">
+@page { size: Letter; margin: 0.60in 0.45in 0.55in 0.45in; }
+html {
+  background: #fff !important;
+  color: #222;
+  font-family: Arial, "Malgun Gothic", "Segoe UI", sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+}
+body {
+  margin: 0 !important;
+  max-width: none !important;
+  width: auto !important;
+  padding: 0 !important;
+  background: transparent !important;
+  color: #222;
+  overflow-wrap: break-word;
+}
+h1 {
+  font-size: 30px;
+  line-height: 1.2;
+  margin: 0 0 28px;
+  font-weight: 700;
+}
+h2 {
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 28px 0 18px;
+  font-weight: 700;
+}
+h3 {
+  font-size: 20px;
+  line-height: 1.3;
+  margin: 26px 0 14px;
+  font-weight: 700;
+}
+p { margin: 0 0 14px; }
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 16px 0 18px;
+  font-size: 14px;
+  line-height: 1.45;
+  page-break-inside: auto;
+  table-layout: auto !important;
+}
+thead { display: table-header-group; }
+tr {
+  page-break-inside: avoid;
+  page-break-after: auto;
+}
+th,
+td {
+  border: 1px solid #d9d9d9 !important;
+  padding: 8px 10px !important;
+  vertical-align: middle;
+}
+th {
+  font-weight: 700;
+  background: #fff;
+}
+tbody { border: 0 !important; }
+code {
+  font-family: Consolas, "Cascadia Mono", "Courier New", monospace;
+  font-size: 0.84em;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+ul,
+ol {
+  margin: 0 0 14px 24px;
+  padding: 0;
+}
+li { margin: 3px 0; }
+@media print {
+  body { font-size: 14px !important; }
+  h2,
+  h3,
+  h4 { break-after: avoid; }
+}
+</style>
+</head>
+<body>
+<h1 id="년-09월-업무-정리">2026년 09월 업무 정리</h1>
+<hr />
+<h2 id="월간-계획">📌 월간 계획</h2>
+<table>
+<thead>
+<tr>
+<th>주차</th>
+<th>기간</th>
+<th>계획</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1주</td>
+<td>09/07 ~ 09/11</td>
+<td>규델 리니어텍 겐트리 프로젝트 / 세믹스 Sigmatek &amp; Welcon 제어기
+드라이브 교체 프로젝트</td>
+</tr>
+<tr>
+<td>2주</td>
+<td>09/14 ~ 09/18</td>
+<td>규델 리니어텍 겐트리 프로젝트 / 세믹스 Sigmatek &amp; Welcon 제어기
+드라이브 교체 프로젝트</td>
+</tr>
+<tr>
+<td>3주</td>
+<td>09/21 ~ 09/25</td>
+<td>규델 리니어텍 겐트리 프로젝트 / 세믹스 Sigmatek &amp; Welcon 제어기
+드라이브 교체 프로젝트</td>
+</tr>
+<tr>
+<td>4주</td>
+<td>09/28 ~ 10/02</td>
+<td>규델 리니어텍 겐트리 프로젝트 / 세믹스 Sigmatek &amp; Welcon 제어기
+드라이브 교체 프로젝트</td>
+</tr>
+<tr>
+<td>5주</td>
+<td>10/05 ~ 10/09</td>
+<td>규델 리니어텍 겐트리 프로젝트 / 세믹스 Sigmatek &amp; Welcon 제어기
+드라이브 교체 프로젝트</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="주-0907-0911">🗂 1주 (09/07 ~ 09/11)</h2>
+<h3 id="계획">계획</h3>
+<ul>
+<li>규델 리니어텍 겐트리 프로젝트</li>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트</li>
+</ul>
+<h3 id="진행">진행</h3>
+<h4 id="월0907">월(09/07)</h4>
+<ul>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트
+<ul>
+<li>EtherCAT 테스트베드 구성 변경 및·PLC 다운로드 확인</li>
+<li>Group 축 구성 로직 동적화</li>
+</ul></li>
+</ul>
+<h4 id="화0908">화(09/08)</h4>
+<ul>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트
+<ul>
+<li>Group Power·Ownership 제어 보강</li>
+<li>멀티턴 리셋 후 좌표 복구 절차 보강</li>
+</ul></li>
+</ul>
+<h4 id="수0909">수(09/09)</h4>
+<ul>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트
+<ul>
+<li>Group Profile Lock·Move 진입 조건 오류 수정</li>
+<li>Elmo 2축에서 Welcon 1Drive 2축 구성으로 변경</li>
+<li>Welcon 2축 API 동작 테스트 완료</li>
+</ul></li>
+</ul>
+<h4 id="목0910">목(09/10)</h4>
+<ul>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트
+<ul>
+<li>CREVIS + Elmo 1Drive 1축 테스트 구성으로 변경</li>
+</ul></li>
+<li>옴론 쇼룸 방문</li>
+</ul>
+<h4 id="금0911">금(09/11)</h4>
+<ul>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트
+<ul>
+<li>멀티턴 리셋 Ownership 오류 원인 분석 및 PLC 초기화 조건 수정</li>
+</ul></li>
+<li>SICK Safety 교육 참석</li>
+</ul>
+<h3 id="이슈-메모">이슈 / 메모</h3>
+<hr />
+<h2 id="주-0914-0918">🗂 2주 (09/14 ~ 09/18)</h2>
+<h3 id="계획-1">계획</h3>
+<ul>
+<li>규델 리니어텍 겐트리 프로젝트</li>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트</li>
+</ul>
+<h3 id="진행-1">진행</h3>
+<h4 id="월0914">월(09/14)</h4>
+<ul>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트
+<ul>
+<li>DS402 Home 완료 판정·좌표 정렬·소유권 해제 및 시작 모드 복귀 로직
+개선</li>
+<li>DS402 Home Method 37 정상 구동 확인, Homing
+Method·Offset·속도·가속도 편집 기능 구현</li>
+<li>API 매뉴얼·개발 진행도 및 Homing Method별 시험표 갱신</li>
+</ul></li>
+</ul>
+<h4 id="화0915">화(09/15)</h4>
+<ul>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트
+<ul>
+<li>LMC Home Direct 및 이동형 모드 구현과 사용자 동작 확인</li>
+<li>Home 완료 후 결과 폐기 후 슬롯 해제 오류 수정</li>
+<li>LMC Home·DS402 Home 자동 결과 조회·폐기·복구 저널 해제와 반복 실행
+추적 기능 구현</li>
+</ul></li>
+</ul>
+<h4 id="수0916">수(09/16)</h4>
+<ul>
+<li>규델 리니어텍 겐트리 프로젝트
+<ul>
+<li>규델에서 겐트리 셋업 진행</li>
+<li>동기축 제외한 개별축 셋업 및 동작 완료</li>
+</ul></li>
+</ul>
+<h4 id="목0917">목(09/17)</h4>
+<ul>
+<li>규델 리니어텍 겐트리 프로젝트
+<ul>
+<li>규델에서 겐트리 셋업 진행</li>
+<li>동기축 구동 테스트</li>
+<li>PLC &lt;-&gt; CtrlX 통신 테스트</li>
+</ul></li>
+</ul>
+<h4 id="금0918">금(09/18)</h4>
+<ul>
+<li>개인연차</li>
+</ul>
+<h3 id="이슈-메모-1">이슈 / 메모</h3>
+<ul>
+<li>최신 반복 실행 수정본의 빌드 및 LMC Home·DS402 Home 연속 2~3회 실기
+검증 필요</li>
+<li>DS402 이동형 Homing Method별 시험 필요, LMC Home Block 모드는 토크
+검출 조건 미확정으로 비활성 유지</li>
+</ul>
+<hr />
+<h2 id="주-0921-0925">🗂 3주 (09/21 ~ 09/25)</h2>
+<h3 id="계획-2">계획</h3>
+<ul>
+<li>규델 리니어텍 겐트리 프로젝트</li>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트</li>
+</ul>
+<h3 id="진행-2">진행</h3>
+<h4 id="월0921">월(09/21)</h4>
+<ul>
+<li>개인연차</li>
+</ul>
+<h4 id="화0922">화(09/22)</h4>
+<ul>
+<li>규델 리니어텍 겐트리 프로젝트
+<ul>
+<li>Job 완료 상태에서 Sync 해제·Servo Off가 차단되는 인터록 구조 분석 및
+개선</li>
+<li>완료 후 Auto→Manual 전환 시 JobCompleted·JobRegistered 상태를
+안전하게 정리하도록 로직 구현</li>
+<li>이동·Home·Sync Busy·축 Active 인터록과 JobRun 재실행 방지 조건
+유지</li>
+<li>관련 설계문서 및 운전 시나리오 갱신, 정적 검사 완료</li>
+</ul></li>
+</ul>
+<h4 id="수0923">수(09/23)</h4>
+<ul>
+<li>규델 리니어텍 겐트리 프로젝트
+<ul>
+<li>JobContinuous CyclicSetPoint 운전 중 Servo Off 차단 및 가감속 리미트
+오류 원인 분석</li>
+<li>CyclicSetPoint 생성기를 Jerk 제한 기반 연속 가감속·위치 보간
+방식으로 수정</li>
+<li>실제 Task Cycle을 반영하고 목표 도달 시 Setpoint 급변이 발생하지
+않도록 감속 로직 개선</li>
+<li>X/Y/Z/Aux 축별 기본 속도·가속도·감속도·Jerk 제한값 분리 적용 및 관련
+문서 갱신</li>
+</ul></li>
+</ul>
+<h4 id="목0924">목(09/24)</h4>
+<ul>
+<li>명절</li>
+</ul>
+<h4 id="금0925">금(09/25)</h4>
+<ul>
+<li>명절</li>
+</ul>
+<h3 id="이슈-메모-2">이슈 / 메모</h3>
+<ul>
+<li>규델 리니어텍 현장 테스트 차주 월요일에 일정 협의 예정</li>
+<li>잠정 일정 화,수 중 하루</li>
+</ul>
+<hr />
+<h2 id="주-0928-1002">🗂 4주 (09/28 ~ 10/02)</h2>
+<h3 id="계획-3">계획</h3>
+<ul>
+<li>규델 리니어텍 겐트리 프로젝트</li>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트</li>
+</ul>
+<h3 id="진행-3">진행</h3>
+<h4 id="월0928">월(09/28)</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<h4 id="화0929">화(09/29)</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<h4 id="수0930">수(09/30)</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<h4 id="목1001">목(10/01)</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<h4 id="금1002">금(10/02)</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<h2 id="이슈-메모-3">### 이슈 / 메모</h2>
+<hr />
+<h2 id="주-1005-1009">🗂 5주 (10/05 ~ 10/09)</h2>
+<h3 id="계획-4">계획</h3>
+<ul>
+<li>규델 리니어텍 겐트리 프로젝트</li>
+<li>세믹스 Sigmatek &amp; Welcon 제어기 드라이브 교체 프로젝트</li>
+</ul>
+<h3 id="진행-4">진행</h3>
+<h4 id="월1005">월(10/05)</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<h4 id="화1006">화(10/06)</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<h4 id="수1007">수(10/07)</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<h4 id="목1008">목(10/08)</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<h4 id="금1009">금(10/09)</h4>
+<ul>
+<li>[ ]</li>
+</ul>
+<h2 id="이슈-메모-4">### 이슈 / 메모</h2>
+<hr />
+</body>
+</html>
