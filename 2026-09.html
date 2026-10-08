@@ -465,25 +465,51 @@ Method·Offset·속도·가속도 편집 기능 구현</li>
 <h3 id="진행-3">진행</h3>
 <h4 id="월0928">월(09/28)</h4>
 <ul>
-<li>[ ]</li>
+<li>규델 리니어텍 겐트리 프로젝트
+<ul>
+<li>부팅 후 X Slave ServoOn 실패 원인 분석 및 ServoOff→ServoOn 최대 3회
+재시도 로직 적용</li>
+<li>Cyclic 정지 완료 판정과 재시작 시 모드 승인·보간 시작 순서 개선</li>
+</ul></li>
 </ul>
 <h4 id="화0929">화(09/29)</h4>
 <ul>
-<li>[ ]</li>
+<li>규델 리니어텍 겐트리 프로젝트 현장 시운전(규델 인천 송도)
+<ul>
+<li>PLC Address Mapping 지원</li>
+<li>데이터 검증 확인</li>
+</ul></li>
 </ul>
 <h4 id="수0930">수(09/30)</h4>
 <ul>
-<li>[ ]</li>
+<li>규델 리니어텍 겐트리 프로젝트 현장 시운전(규델 인천 송도)
+<ul>
+<li>Gantry 결합 상태의 ServoOnTimeout(2002) 오판정 수정 및 축별
+속도·조그·스트로크 제한 적용</li>
+<li>CyclicSetPoint 현장 테스트와 가감속 한계 오류 Trace 분석</li>
+<li>실제 위치 피드백·시작 지령 연속성·부팅 ModeAB 확인 로직 보강, 위치
+모니터 화면 추가</li>
+</ul></li>
 </ul>
 <h4 id="목1001">목(10/01)</h4>
 <ul>
-<li>[ ]</li>
+<li>규델 리니어텍 겐트리 프로젝트 현장 시운전(규델 인천 송도)
+<ul>
+<li>Continuous 운전을 PosAbs 목표 갱신 / CyclicSetPoint 선택 방식으로
+구현, 기본값 PosAbs 적용</li>
+<li>통신 단절·정지 중 Gantry 결합 유지와 ExternalFB 제어권 복구 시퀀스
+구현</li>
+<li>정적·모델 및 문서 검사 통과, MC_Reset 출력 참조 오류 수정</li>
+</ul></li>
 </ul>
 <h4 id="금1002">금(10/02)</h4>
 <ul>
-<li>[ ]</li>
+<li>규델 리니어텍 겐트리 프로젝트
+<ul>
+<li>Continuous 운전 정상 구동 동작 확인(시뮬레이션)</li>
+</ul></li>
 </ul>
-<h2 id="이슈-메모-3">### 이슈 / 메모</h2>
+<h3 id="이슈-메모-3">이슈 / 메모</h3>
 <hr />
 <h2 id="주-1005-1009">🗂 5주 (10/05 ~ 10/09)</h2>
 <h3 id="계획-4">계획</h3>
